@@ -64,3 +64,65 @@ a{
 .navbar ul li.active a{
     color: #7cf03d;
 }
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 15px 5%;
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(31, 36, 45, 0.95);
+    padding-top: 60px;
+  }
+
+  .navbar ul li {
+    margin: 15px 0;
+  }
+
+  .navbar ul li a {
+    font-size: 18px;
+  }
+
+  .menu-toggle:checked ~ .navbar ul {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar .logo {
+    font-size: 22px;
+  }
+
+  .navbar ul li a {
+    font-size: 16px;
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 101;
+}
