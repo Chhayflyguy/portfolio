@@ -126,3 +126,20 @@ a{
   right: 20px;
   z-index: 101;
 }
+
+/* Responsive styles for mobile devices */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .container, .row {
+    width: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+}

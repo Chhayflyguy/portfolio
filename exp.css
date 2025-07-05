@@ -64,3 +64,20 @@ a{
 .navbar ul li.active a{
     color: #7cf03d;
 }
+
+/* Responsive styles for mobile devices */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .container, .row {
+    width: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+}
