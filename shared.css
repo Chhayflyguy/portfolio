@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #1f242d;
+    overflow-x: hidden;
+}
+
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.navbar ul li:hover a,
+.navbar ul li.active a {
+    color: #7cf03d;
+}
+
+.bars-animation {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bars-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+/* Responsive Design */
+
+/* Large screens and middle ones */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 20px 7%;
+    }
+}
+
+/* Tablet (Portrait) */
+@media screen and (max-width: 991px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        font-size: 32px;
+        color: aliceblue;
+        cursor: pointer;
+        z-index: 1001;
+        position: fixed;
+        top: 25px;
+        right: 5%;
+    }
+
+    .navbar {
+        padding: 20px 5%;
+        background: transparent;
+    }
+
+    .navbar .logo {
+        z-index: 1001;
+        /* Keep logo above the mobile menu */
+    }
+
+    .navbar ul {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #1f242d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s ease;
+        z-index: 1000;
+    }
+
+    .menu-toggle:checked~.navbar ul {
+        left: 0;
+    }
+
+    .navbar ul li {
+        margin: 15px 0;
+        margin-left: 0;
+    }
+
+    .navbar ul li a {
+        font-size: 24px;
+    }
+}
+
+/* iPhone & Small Mobile */
+@media screen and (max-width: 480px) {
+    .navbar .logo {
+        font-size: 24px;
+    }
+}
